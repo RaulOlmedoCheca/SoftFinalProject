@@ -19,4 +19,9 @@ public interface WatershedManagerInterface {
 	// IrrigationDemandPublicData represents HDSS-RF-03-S1
 	// String InputFile represents HDSS-RF-03-E1
 	// HydricDSSException represents HDSS-RF-03-S2
+
+	public AmountAvailablePublicData CalculateWatershedAmount (String InputFile) throws HydricDSSException;
+	// AmountAvailablePublicData represents HDSS-FR-01-O1
+	// String InputFile represents HDSS-FR-01-I1
+	// HydricDSSException represents HDSS-FR-01-O2
 }
