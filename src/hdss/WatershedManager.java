@@ -56,4 +56,13 @@ public class WatershedManager implements WatershedManagerInterface {
 		return myResult;
 	}
 
+	@Override
+	public AmountAvailablePublicData CalculateWatershedAmount (String InputFile) throws HydricDSSException {
+		IInputFileManager ioManager = new AmountAvailableFileDataManager();
+		Object amountData = ioManager.Parse(InputFile);
+		WatershedStorageManager dataStoreManager = new WatershedStorageManager();
+		Watershed
+	}
+
+
 }
