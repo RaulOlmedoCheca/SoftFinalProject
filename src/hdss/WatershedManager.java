@@ -11,7 +11,6 @@ import hdss.output.ScenarioPublicData;
 import hdss.output.WatershedsListPublicData;
 import hdss.output.AmountAvailablePublicData;
 import hdss.storage.WatershedStorageManager;
-import hdss.input.*;
 import hdss.input.data.IrrigationDemandInputData;
 import hdss.input.data.ScenarioInputData;
 import hdss.input.data.WatershedInputData;
@@ -61,7 +60,13 @@ public class WatershedManager implements WatershedManagerInterface {
 	public AmountAvailablePublicData CalculateWatershedAmount (String InputFile) throws HydricDSSException {
 		IInputFileManager ioManager = new AmountAvailableFileDataManager();
 		Object amountData = ioManager.Parse(InputFile);
-		WatershedStorageManager dataStoreManager = new WatershedStorageManager();
+
+		WatershedJSONDataStore dataStoreManager = new WatershedJSONDataStore();
+		dataStoreManager.loadDataStore();
+		WatershedInternalData watershed = dataStoreManager.getWatershed(amountData.getName());
+
+		
+
 
 		// TODO
 		AmountAvailablePublicData myResult = new AmountAvailablePublicData();

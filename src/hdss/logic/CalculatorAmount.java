@@ -8,5 +8,6 @@ public class CalculatorAmount {
   public String Calculate (Object obj) throws HydricDSSException {
     AmountAvailableInternalData data = (AmountAvailableInternalData) obj;
     
+
   }
 }
