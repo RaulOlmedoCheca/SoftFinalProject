@@ -6,21 +6,20 @@ import java.util.List;
 
 public class IrrigationDemandPublicData {
 
-	private String watershedName;
-	private List<DailyIrrigationSchedulePublicData> schedule;
-	
-	// Esfuerzo : 2 minutos
-	public IrrigationDemandPublicData (DemandInternalData dataStored)
-	{
-		watershedName = dataStored.getName();
-		schedule = null;
-	}
+    private String watershedName;
+    private List<DailyIrrigationSchedulePublicData> schedule;
 
-	public String getWatershedName() {
-		return watershedName;
-	}
+    // Esfuerzo : 2 minutos
+    public IrrigationDemandPublicData(DemandInternalData dataStored) {
+        watershedName = dataStored.getName();
+        schedule = null;
+    }
 
-	public List<DailyIrrigationSchedulePublicData> getSchedule() {
-		return schedule;
-	}	
+    public String getWatershedName() {
+        return watershedName;
+    }
+
+    public List<DailyIrrigationSchedulePublicData> getSchedule() {
+        return schedule;
+    }
 }
