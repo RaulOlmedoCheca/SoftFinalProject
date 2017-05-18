@@ -9,6 +9,7 @@ import hdss.logic.ScenarioSimulator;
 import hdss.output.IrrigationDemandPublicData;
 import hdss.output.ScenarioPublicData;
 import hdss.output.WatershedsListPublicData;
+import hdss.output.AmountAvailablePublicData;
 import hdss.storage.WatershedStorageManager;
 import hdss.input.*;
 import hdss.input.data.IrrigationDemandInputData;
@@ -61,7 +62,18 @@ public class WatershedManager implements WatershedManagerInterface {
 		IInputFileManager ioManager = new AmountAvailableFileDataManager();
 		Object amountData = ioManager.Parse(InputFile);
 		WatershedStorageManager dataStoreManager = new WatershedStorageManager();
-		Watershed
+		
+		// TODO
+		AmountAvailablePublicData myResult = new AmountAvailablePublicData();
+		return myResult;
+	}
+	
+	@Override
+	public AllocationRequestsPublicData AllocateWaterAmount (String InputFile) throws HydricDSSException {
+		// TODO
+		AllocationRequestsPublicData myResult = new AllocationRequestsPublicData();
+		
+		return myResult;
 	}
 
 

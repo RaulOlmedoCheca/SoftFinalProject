@@ -18,7 +18,7 @@ public class AmountAvailableFileDataManager implements IInputFileManager {
 			JsonReader reader = new JsonReader(new FileReader(inputFilePath));
 			Gson gson = new Gson();
 			AmountAvailableInputData item = gson.fromJson(reader, AmountAvailableInputData.class);
-			item.Validate();			
+			item.validate();			
 			return item;
 		}
 		catch (Exception ex)

@@ -1,0 +1,19 @@
+package hdss.output;
+
+public class ResourcesFlowPublicData {
+	private String resourceName;
+	private double flowPerMinute;
+	
+	public ResourcesFlowPublicData(String resourceName, double flowPerMinute) {
+		this.resourceName = resourceName;
+		this.flowPerMinute = flowPerMinute;
+	}
+	
+	public String getResourceName() {
+		return this.resourceName;
+	}
+	
+	public double getFlowPerMinute() {
+		return this.flowPerMinute;
+	}
+}

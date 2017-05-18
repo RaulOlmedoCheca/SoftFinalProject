@@ -3,6 +3,7 @@ package hdss.input.data;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import hdss.exceptions.HydricDSSException;
 
@@ -11,7 +12,7 @@ public class AmountAvailableInputData {
 	private String name;
 	private String evaluation;
 	private String evaluationDate;
-	private float totalRequested;
+	private double totalRequested;
 	
 	private Boolean validated;
 	
@@ -27,18 +28,18 @@ public class AmountAvailableInputData {
 		return this.evaluationDate;
 	}
 
-	public float getTotalRequested() {
+	public double getTotalRequested() {
 		return this.totalRequested;
 	}
 	
-	public AmountAvailableInputData (String watershedName, String evaluation, String evaluationDate, float totalRequested) throws HydricDSSException {
-	    	this.name = watershedName;
+	public AmountAvailableInputData (String watershedName, String evaluation, String evaluationDate, double totalRequested) throws HydricDSSException {
+	    this.name = watershedName;
 		this.evaluation = evaluation;
 		this.evaluationDate = evaluationDate;
 		this.totalRequested = totalRequested;
 
-	    	validated = false;
-	    	validate();
+	    validated = false;
+	    validate();
 	}
 
 	public void validate() throws HydricDSSException {
@@ -65,26 +66,26 @@ public class AmountAvailableInputData {
 	}
 
 	private void validateEvaluationDate() throws HydricDSSException {
-		if (this.evaluationDate != getYesterdayDateString()) {
+		if (!this.evaluationDate.equals(getYesterdayDateString())) {
 			throw (new HydricDSSException ("The input file has no data or does not match the expected format"));
 		}
 	}
 	
 	private void validateTotalRequested() throws HydricDSSException {
-		if (this.totalRequested <= 0.0f) {
+		if (this.totalRequested < 0.0) {
 			throw (new HydricDSSException ("The input file has no data or does not match the expected format"));			
 		}
 		
-		String s = Float.toString(this.totalRequested);
+		String s = Double.toString(this.totalRequested);
 		String numberParts [] = s.split("\\.");
 		
-		if(parts[1].length() != 2) {
+		if(numberParts[1].length() != 2) {
 			throw (new HydricDSSException ("The input file has no data or does not match the expected format"));
 		}
 	}
 
 	private String getYesterdayDateString() {
-        	private static final DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        	final DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
         	return dateFormat.format(yesterday());
 	}
 
