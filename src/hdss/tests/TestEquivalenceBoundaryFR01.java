@@ -2,10 +2,6 @@ package hdss.tests;
 
 import static org.junit.Assert.*;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.List;
-
 import org.junit.Test;
 
 import hdss.WatershedManagerInterface;
