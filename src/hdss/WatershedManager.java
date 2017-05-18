@@ -1,17 +1,21 @@
 package hdss;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import hdss.data.DemandInternalData;
+import hdss.data.ResourcesFlowInternalData;
 import hdss.data.WatershedInternalData;
 import hdss.exceptions.HydricDSSException;
-import hdss.logic.FullEvaluator;
+import hdss.logic.CalculatorAmount;
 import hdss.logic.ScenarioSimulator;
 import hdss.output.IrrigationDemandPublicData;
-import hdss.output.RequestersProvidedListPublicData;
 import hdss.output.ScenarioPublicData;
 import hdss.output.WatershedsListPublicData;
 import hdss.output.AmountAvailablePublicData;
+import hdss.storage.WatershedDataStore;
 import hdss.storage.WatershedJSONDataStore;
 import hdss.storage.WatershedStorageManager;
 import hdss.input.*;
@@ -66,21 +70,32 @@ public class WatershedManager implements WatershedManagerInterface {
 		IInputFileManager ioManager = new AmountAvailableFileDataManager();
 		Object amountData = ioManager.Parse(InputFile);
 
-		WatershedJSONDataStore dataStoreManager = new WatershedJSONDataStore();
+		WatershedDataStore dataStoreManager = new WatershedJSONDataStore();
 		dataStoreManager.loadDataStore();
-		WatershedInternalData watershed = dataStoreManager.getWatershed(((AmountAvailableInputData) amountData).getName());
-
+		WatershedInternalData watershed = (WatershedInternalData) dataStoreManager.getWatershed(((AmountAvailableInputData) amountData).getName());
 		
-
+		CalculatorAmount calculator = new CalculatorAmount();
+		ResourcesFlowInternalData[] resourcesData = calculator.calculate(watershed);
+		
+		Date tomorrow = new Date();
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(tomorrow); 
+		c.add(Calendar.DATE, 1);
+		tomorrow = c.getTime();
+		
+		DateFormat df = new SimpleDateFormat("dd/mm/yyyy");
+		String authorizationDate = df.format(tomorrow);
+		
+		AmountAvailablePublicData myResult = new AmountAvailablePublicData(watershed.getName(), authorizationDate, resourcesData);
 		// TODO
 		return myResult;
 	}
 
-	@Override
-	public RequestersProvidedListPublicData AllocateWaterAmount (String InputFile) throws HydricDSSException {
+	//@Override
+	//public RequestersProvidedListPublicData AllocateWaterAmount (String InputFile) throws HydricDSSException {
 		// TODO
-		return myResult;
-	}
+		//return myResult;
+	//}
 
 
 }

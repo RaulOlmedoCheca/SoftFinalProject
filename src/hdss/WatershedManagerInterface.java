@@ -25,7 +25,7 @@ public interface WatershedManagerInterface {
 	// String InputFile represents HDSS-FR-01-I1
 	// HydricDSSException represents HDSS-FR-01-O2
 	
-	public RequestersProvidedListPublicData AllocateWaterAmount (String InputFile) throws HydricDSSException;
+	//public RequestersProvidedListPublicData AllocateWaterAmount (String InputFile) throws HydricDSSException;
 	// AllocationRequestsPublicDate represents HDSS-FR-02-O1
 	// String InputFile represents HDSS-FR-02-I1
 	// HydricDSSException represents HDSS-FR-02-O2

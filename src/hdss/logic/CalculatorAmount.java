@@ -9,7 +9,7 @@ import hdss.data.ResourcesFlowInternalData;
 
 public class CalculatorAmount {
 
-  public ResourcesFlowInternalData[] Calculate (WatershedInternalData watershed) throws HydricDSSException {
+  public ResourcesFlowInternalData[] calculate (WatershedInternalData watershed) throws HydricDSSException {
 	  
 	  ScenarioSimulator reservoirsEval = new ScenarioSimulator("reservoir");
 	  ScenarioSimulator plantsEval = new ScenarioSimulator("plant");
