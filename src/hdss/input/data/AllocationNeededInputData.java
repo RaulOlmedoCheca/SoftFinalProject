@@ -1,15 +1,14 @@
 package hdss.input.data;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.SimpleDateFormat;
 
 import hdss.exceptions.HydricDSSException;
 
-public class AmountAvailableInputData {
+public class AllocationNeededInputData {
 
 	private String name;
-	private String calculationDate;
+	private String allocationDate;
 
 	private Boolean validated;
 
@@ -17,13 +16,13 @@ public class AmountAvailableInputData {
 		return this.name;
 	}
 
-	public String getCalculationDate() {
-		return this.calculationDate;
+	public String getAllocationDate() {
+		return this.allocationDate;
 	}
 
-	public AmountAvailableInputData (String watershedName, String calculationDate) throws HydricDSSException {
+	public AllocationNeededInputData (String watershedName, String allocationDate) throws HydricDSSException {
 	  this.name = watershedName;
-		this.calculationDate = evaluationDate;
+		this.allocationDate = allocationDate;
 
 	  validated = false;
 	  validate();
@@ -32,7 +31,7 @@ public class AmountAvailableInputData {
 	public void validate() throws HydricDSSException {
 	    	if (!validated) {
 	    		validateName();
-					validateCalculationDate();
+          validateAllocationDate();
 	    		validated = true;
     		}
 	}
@@ -44,10 +43,19 @@ public class AmountAvailableInputData {
 		}
 	}
 
-	private void validateCalculationDate() throws HydricDSSException {
+	private void validateAllocationDate() throws HydricDSSException {
 		if (!isValidDateFormat("dd/mm/yyyy", this.calculationDate)) {
 			throw (new HydricDSSException ("The input file has no data or does not match the expected format"));
 		}
+
+    Date current = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+    date = sdf.parse(this.calculationDate);
+
+    if (date.before(current)) {
+      throw (new HydricDSSException("The input file has no data or does not match the expected format"));
+    }
+
 	}
 
 	private static boolean isValidDateFormat(String format, String value) {
