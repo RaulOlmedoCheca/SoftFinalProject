@@ -55,7 +55,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "No input files")
+      assertEquals(e.getMessage(), "No input files");
     }
   }
 
@@ -69,7 +69,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputJSONFormat.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 
@@ -83,7 +83,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputEmptyFile.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 
@@ -97,7 +97,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputNonExistingWatershedName.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 
@@ -111,7 +111,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputWatershedNameLength.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 
@@ -125,7 +125,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputWatershedNameNotFound.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 
@@ -139,7 +139,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputTwoWatershedNamesFound.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 
@@ -153,7 +153,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputTwoCalculationDatesFound.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 
@@ -167,7 +167,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputCalculationDateNotFound.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 
@@ -181,7 +181,7 @@ public class TestEquivalenceBoundaryFR01 {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputCalculationDateFormat.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 
@@ -191,7 +191,7 @@ public class TestEquivalenceBoundaryFR01 {
   * Expected Result:
   */
   @Test
-  public void name throws HydricDSSException {
+  public void watershedNameLengthLowerLimitTest() {
     //TODO
   }
 
@@ -201,7 +201,7 @@ public class TestEquivalenceBoundaryFR01 {
   * Expected Result:
   */
   @Test
-  public void name throws HydricDSSException {
+  public void watershedNameLengthRightValueTest() {
     //TODO
   }
 
@@ -211,11 +211,11 @@ public class TestEquivalenceBoundaryFR01 {
   * Expected Result: Throws Exception. Error message: "The input file has no data or does not match the expected format"
   */
   @Test
-  public void name throws HydricDSSException {
+  public void watershedNameLengthUpperLimitTest() {
     try {
       manager.CalculateWatershedAmount("hdss-fr01-invalidInputWatershedName51Chars.json");
     } catch (HydricDSSException e) {
-      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format")
+      assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
     }
   }
 }
