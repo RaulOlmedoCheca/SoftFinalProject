@@ -2,7 +2,21 @@ package hdss.tests;
 
 
 public class TestEquivalenceBoundaryFR02 {
-
+//PLANTILLA
+  /* Test Case:
+  * Equivalence Class, Boundary Limit or Node in the Derivation Tree:
+  * Testing Technique:
+  * Expected Result:
+  *
+  @Test
+  public void testName() throws HydricDSSException {
+    try {
+      manager.AllocateWaterAmount("file.json");
+    } catch (HydricDSSException e) {
+      assertEquals(e.getMessage(), "MENSAJE DE ERROR")
+    }
+  }
+  */
 
     /* Test Case: HDSS-FR02-TC-1
   * Equivalence Class: HDSS-FN2-EQ-2, HDSS-FN2-EQ-5, HDSS-FN2-EQ-6, HDSS-FN2-EQ-7,
