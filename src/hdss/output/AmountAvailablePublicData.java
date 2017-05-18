@@ -18,10 +18,10 @@ public class AmountAvailablePublicData {
 		this.resources = createResourcesList(newResources);
 	}
 
-	private List<ResourcesFlowPublicData> createResourcesList (ResourcesFlowPublicData[] newResources) {
-		List<ResourcesFlowPublicData> aux;
+	private List<ResourcesFlowPublicData> createResourcesList (ResourcesFlowInternalData[] newResources) {
+		List<ResourcesFlowPublicData> aux = new;
 		for (int i=0; i<newResources.length;i++) {
-			this.aux.add(new ResourcesFlowPublicData (newResources[i].getResourceName(), newResources[i].getFlowPerMinute()));
+			aux.add(new ResourcesFlowPublicData (newResources[i].getResourceName(), newResources[i].getFlowPerMinute()));
 		}
 		return aux;
 	}

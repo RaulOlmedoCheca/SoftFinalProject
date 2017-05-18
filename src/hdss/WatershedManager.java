@@ -41,7 +41,7 @@ public class WatershedManager implements WatershedManagerInterface {
 		WatershedInternalData upgradeResult = dataStoreManager.UpgradeCurrentState((ScenarioInputData) currentStateData);
 		String scenarioEvaluation = myScenarioSimulator.Evaluate((WatershedInternalData) upgradeResult);
 		Date CurrentDate = new Date();
-		ScenarioPublicData myResult = new ScenarioPublicData (upgradeResult.getName(), CurrentDate, Scope, scenarioEvaluation); 
+		ScenarioPublicData myResult = new ScenarioPublicData (upgradeResult.getName(), CurrentDate, Scope, scenarioEvaluation);
 		return myResult;
 	}
 
@@ -62,17 +62,17 @@ public class WatershedManager implements WatershedManagerInterface {
 		IInputFileManager ioManager = new AmountAvailableFileDataManager();
 		Object amountData = ioManager.Parse(InputFile);
 		WatershedStorageManager dataStoreManager = new WatershedStorageManager();
-		
+
 		// TODO
 		AmountAvailablePublicData myResult = new AmountAvailablePublicData();
 		return myResult;
 	}
-	
+
 	@Override
-	public AllocationRequestsPublicData AllocateWaterAmount (String InputFile) throws HydricDSSException {
+	public AllocationRequestsPublicData AllocateWaterAmount (String InputFile, double totalAvailable) throws HydricDSSException {
 		// TODO
 		AllocationRequestsPublicData myResult = new AllocationRequestsPublicData();
-		
+
 		return myResult;
 	}
 
