@@ -4,11 +4,13 @@ public class ResourcesFlowPublicData {
 	private String resourceName;
 	private double flowPerMinute;
 	private double amountProvided;
+	private int timeNeeded;
 
-	public ResourcesFlowPublicData(String resourceName, double flowPerMinute, double amountProvided) {
+	public ResourcesFlowPublicData(String resourceName, double flowPerMinute, double amountProvided, int timeNeeded) {
 		this.resourceName = resourceName;
 		this.flowPerMinute = flowPerMinute;
 		this.amountProvided = amountProvided;
+		this.timeNeeded = timeNeeded;
 	}
 
 	public String getResourceName() {
@@ -21,5 +23,9 @@ public class ResourcesFlowPublicData {
 
 	public double getAmountProvided() {
 		return this.amountProvided;
+	}
+	
+	public int getTimeNeeded() {
+		return this.timeNeeded;
 	}
 }
