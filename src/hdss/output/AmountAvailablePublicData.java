@@ -2,7 +2,6 @@ package hdss.output;
 
 import java.util.List;
 
-import hdss.data.PlantInternalData;
 import hdss.output.ResourcesFlowPublicData;
 
 public class AmountAvailablePublicData {
@@ -19,9 +18,10 @@ public class AmountAvailablePublicData {
 	}
 
 	private List<ResourcesFlowPublicData> createResourcesList (ResourcesFlowInternalData[] newResources) {
-		List<ResourcesFlowPublicData> aux = new;
+		List<ResourcesFlowPublicData> aux;
+
 		for (int i=0; i<newResources.length;i++) {
-			aux.add(new ResourcesFlowPublicData (newResources[i].getResourceName(), newResources[i].getFlowPerMinute()));
+			aux.add(new ResourcesFlowPublicData (newResources[i].getResourceName(), newResources[i].getFlowPerMinute(), newResources[i].getAmountProvided()));
 		}
 		return aux;
 	}

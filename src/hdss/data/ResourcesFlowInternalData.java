@@ -3,10 +3,12 @@ package hdss.data;
 public class ResourcesFlowInternalData {
 	private String resourceName;
 	private double flowPerMinute;
+	private double amountProvided;
 
-	public ResourcesFlowInternalData(String resourceName, double flowPerMinute) {
+	public ResourcesFlowInternalData(String resourceName, double flowPerMinute, double amountProvided) {
 		this.resourceName = resourceName;
 		this.flowPerMinute = flowPerMinute;
+		this.amountProvided = amountProvided;
 	}
 
 	public String getResourceName() {
@@ -15,5 +17,9 @@ public class ResourcesFlowInternalData {
 
 	public double getFlowPerMinute() {
 		return this.flowPerMinute;
+	}
+
+	public double getAmountProvided() {
+		return this.amountProvided;
 	}
 }
