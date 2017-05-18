@@ -24,7 +24,6 @@ public class AmountAvailableInputData {
 	public AmountAvailableInputData (String name, String calculationDate) throws HydricDSSException {
 	  this.name = name;
 	  this.calculationDate = calculationDate;
-
 	  validated = false;
 	  validate();
 	}
