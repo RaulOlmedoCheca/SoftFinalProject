@@ -21,8 +21,8 @@ public class AmountAvailableInputData {
 		return this.calculationDate;
 	}
 
-	public AmountAvailableInputData (String watershedName, String calculationDate) throws HydricDSSException {
-	  this.name = watershedName;
+	public AmountAvailableInputData (String name, String calculationDate) throws HydricDSSException {
+	  this.name = name;
 	  this.calculationDate = calculationDate;
 
 	  validated = false;
@@ -32,7 +32,7 @@ public class AmountAvailableInputData {
 	public void validate() throws HydricDSSException {
 	    	if (!validated) {
 	    		validateName();
-					validateCalculationDate();
+	    		validateCalculationDate();
 	    		validated = true;
     		}
 	}

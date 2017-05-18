@@ -68,11 +68,11 @@ public class WatershedManager implements WatershedManagerInterface {
 	@Override
 	public AmountAvailablePublicData CalculateWatershedAmount (String InputFile) throws HydricDSSException {
 		IInputFileManager ioManager = new AmountAvailableFileDataManager();
-		Object amountData = ioManager.Parse(InputFile);
-
+		AmountAvailableInputData amountData = (AmountAvailableInputData) ioManager.Parse(InputFile);
+		
 		WatershedDataStore dataStoreManager = new WatershedJSONDataStore();
 		dataStoreManager.loadDataStore();
-		WatershedInternalData watershed = (WatershedInternalData) dataStoreManager.getWatershed(((AmountAvailableInputData) amountData).getName());
+		WatershedInternalData watershed = (WatershedInternalData) dataStoreManager.getWatershed(amountData.getName());
 		
 		CalculatorAmount calculator = new CalculatorAmount();
 		ResourcesFlowInternalData[] resourcesData = calculator.calculate(watershed);
@@ -87,7 +87,6 @@ public class WatershedManager implements WatershedManagerInterface {
 		String authorizationDate = df.format(tomorrow);
 		
 		AmountAvailablePublicData myResult = new AmountAvailablePublicData(watershed.getName(), authorizationDate, resourcesData);
-		// TODO
 		return myResult;
 	}
 

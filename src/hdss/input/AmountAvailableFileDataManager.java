@@ -11,7 +11,7 @@ import hdss.input.data.AmountAvailableInputData;
 public class AmountAvailableFileDataManager implements IInputFileManager {
 
 	@Override
-	public Object Parse(String inputFilePath) throws HydricDSSException 
+	public AmountAvailableInputData Parse(String inputFilePath) throws HydricDSSException 
 	{
 		try
 		{
