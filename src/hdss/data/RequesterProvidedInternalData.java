@@ -1,10 +1,10 @@
-package hdss.output;
+package hdss.data;
 
-public class RequesterProvidedPublicData {
+public class RequesterProvidedInternalData {
 	private String requesterName;
 	private double amountProvided;
 
-	public RequesterProvidedPublicData(String requesterName, double amountProvided) {
+	public RequesterProvidedInternalData(String requesterName, double amountProvided) {
 		this.requesterName = requesterName;
 		this.amountProvided = amountProvided;
 	}

@@ -5,12 +5,17 @@ import java.util.Date;
 import hdss.data.DemandInternalData;
 import hdss.data.WatershedInternalData;
 import hdss.exceptions.HydricDSSException;
+import hdss.logic.FullEvaluator;
 import hdss.logic.ScenarioSimulator;
 import hdss.output.IrrigationDemandPublicData;
+import hdss.output.RequestersProvidedListPublicData;
 import hdss.output.ScenarioPublicData;
 import hdss.output.WatershedsListPublicData;
 import hdss.output.AmountAvailablePublicData;
+import hdss.storage.WatershedJSONDataStore;
 import hdss.storage.WatershedStorageManager;
+import hdss.input.*;
+import hdss.input.data.AmountAvailableInputData;
 import hdss.input.data.IrrigationDemandInputData;
 import hdss.input.data.ScenarioInputData;
 import hdss.input.data.WatershedInputData;
@@ -63,21 +68,17 @@ public class WatershedManager implements WatershedManagerInterface {
 
 		WatershedJSONDataStore dataStoreManager = new WatershedJSONDataStore();
 		dataStoreManager.loadDataStore();
-		WatershedInternalData watershed = dataStoreManager.getWatershed(amountData.getName());
+		WatershedInternalData watershed = dataStoreManager.getWatershed(((AmountAvailableInputData) amountData).getName());
 
 		
 
-
 		// TODO
-		AmountAvailablePublicData myResult = new AmountAvailablePublicData();
 		return myResult;
 	}
 
 	@Override
-	public AllocationRequestsPublicData AllocateWaterAmount (String InputFile, double totalAvailable) throws HydricDSSException {
+	public RequestersProvidedListPublicData AllocateWaterAmount (String InputFile) throws HydricDSSException {
 		// TODO
-		AllocationRequestsPublicData myResult = new AllocationRequestsPublicData();
-
 		return myResult;
 	}
 

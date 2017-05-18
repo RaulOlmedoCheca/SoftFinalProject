@@ -1,7 +1,8 @@
 package hdss.input.data;
 
 import java.util.Date;
-import java.util.SimpleDateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import hdss.exceptions.HydricDSSException;
 
@@ -44,21 +45,26 @@ public class AllocationNeededInputData {
 	}
 
 	private void validateAllocationDate() throws HydricDSSException {
-		if (!isValidDateFormat("dd/mm/yyyy", this.calculationDate)) {
+		if (!isValidDateFormat("dd/mm/yyyy", this.allocationDate)) {
 			throw (new HydricDSSException ("The input file has no data or does not match the expected format"));
 		}
 
-    Date current = new Date();
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-    date = sdf.parse(this.calculationDate);
-
-    if (date.before(current)) {
-      throw (new HydricDSSException("The input file has no data or does not match the expected format"));
-    }
+	    Date current = new Date();
+	    SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+	    Date date;
+		try {
+			date = sdf.parse(this.allocationDate);
+		} catch (ParseException e) {
+			throw (new HydricDSSException("The input file has no data or does not match the expected format"));
+		}
+	
+	    if (date.before(current)) {
+	    	throw (new HydricDSSException("The input file has no data or does not match the expected format"));
+	    }
 
 	}
 
-	private static boolean isValidDateFormat(String format, String value) {
+	private static boolean isValidDateFormat(String format, String value) throws HydricDSSException {
         Date date = null;
         try {
             SimpleDateFormat sdf = new SimpleDateFormat(format);

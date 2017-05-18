@@ -38,7 +38,7 @@ public class WatershedJSONDataStore implements WatershedDataStore {
 	}
 
 	// Esfurzo: 29 minutos
-	public Object getWatershed (Object SearchCriteria)
+	public WatershedInternalData getWatershed (Object SearchCriteria)
 	{
 		String watershedName = (String)SearchCriteria;
 		Boolean found = false; 

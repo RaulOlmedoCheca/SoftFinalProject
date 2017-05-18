@@ -17,7 +17,7 @@ public class AllocationNeededFileDataManager implements IInputFileManager {
 		{
 			JsonReader reader = new JsonReader(new FileReader(inputFilePath));
 			Gson gson = new Gson();
-			AmountAvailableInputData item = gson.fromJson(reader, AllocationNeededInputData.class);
+			AllocationNeededInputData item = gson.fromJson(reader, AllocationNeededInputData.class);
 			item.validate();
 			return item;
 		}
