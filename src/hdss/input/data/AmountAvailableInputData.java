@@ -1,6 +1,6 @@
 package hdss.input.data;
 
-import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -23,7 +23,7 @@ public class AmountAvailableInputData {
 
 	public AmountAvailableInputData (String watershedName, String calculationDate) throws HydricDSSException {
 	  this.name = watershedName;
-		this.calculationDate = evaluationDate;
+	  this.calculationDate = calculationDate;
 
 	  validated = false;
 	  validate();
@@ -50,7 +50,7 @@ public class AmountAvailableInputData {
 		}
 	}
 
-	private static boolean isValidDateFormat(String format, String value) {
+	private static boolean isValidDateFormat(String format, String value) throws HydricDSSException {
         Date date = null;
         try {
             SimpleDateFormat sdf = new SimpleDateFormat(format);
