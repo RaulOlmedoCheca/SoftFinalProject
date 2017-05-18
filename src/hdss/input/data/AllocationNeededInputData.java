@@ -23,7 +23,7 @@ public class AllocationNeededInputData {
 
 	public AllocationNeededInputData (String watershedName, String allocationDate) throws HydricDSSException {
 	  this.name = watershedName;
-		this.allocationDate = allocationDate;
+	  this.allocationDate = allocationDate;
 
 	  validated = false;
 	  validate();
@@ -32,7 +32,7 @@ public class AllocationNeededInputData {
 	public void validate() throws HydricDSSException {
 	    	if (!validated) {
 	    		validateName();
-          validateAllocationDate();
+          		validateAllocationDate();
 	    		validated = true;
     		}
 	}

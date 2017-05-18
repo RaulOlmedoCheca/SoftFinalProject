@@ -23,7 +23,7 @@ public class AmountAvailableFileDataManager implements IInputFileManager {
 		}
 		catch (Exception ex)
 		{
-			throw (new HydricDSSException(ex.getMessage()));
+			throw (new HydricDSSException("No input files"));
 		}
 	}
 

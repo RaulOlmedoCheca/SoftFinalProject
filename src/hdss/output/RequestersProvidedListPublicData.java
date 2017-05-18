@@ -10,17 +10,13 @@ public class RequestersProvidedListPublicData {
 
   public RequestersProvidedListPublicData(String watershedName, RequesterProvidedInternalData[] newRequesters) {
     this.watershedName = watershedName;
-    this.requesters = createRequestersList(newRequesters);
+    createRequestersList(newRequesters);
   }
 
-  private List<RequesterProvidedPublicData> createRequestersList(RequesterProvidedInternalData[] newRequesters) {
-    List<RequesterProvidedPublicData> aux = null;
-
+  private void createRequestersList(RequesterProvidedInternalData[] newRequesters) {
     for (int i=0; i<newRequesters.length;i++) {
-      aux.add(new RequesterProvidedPublicData (newRequesters[i].getRequesterName(), newRequesters[i].getAmountProvided()));
+      this.requesters.add(new RequesterProvidedPublicData (newRequesters[i].getRequesterName(), newRequesters[i].getAmountProvided()));
     }
-    
-    return aux;
   }
   
   public String getWatershedName() {

@@ -6,8 +6,8 @@ public class AmountAvailableInternalData {
 	private String name;
 	private String calculationDate;
 
-	public AmountAvailableInternalData(Object objectToInsert) {
-		AmountAvailableInputData newObject = (AmountAvailableInputData)objectToInsert;
+	public AmountAvailableInternalData(AmountAvailableInputData objectToInsert) {
+		AmountAvailableInputData newObject = objectToInsert;
 
 		this.name = newObject.getName();
 		this.calculationDate = newObject.getCalculationDate();

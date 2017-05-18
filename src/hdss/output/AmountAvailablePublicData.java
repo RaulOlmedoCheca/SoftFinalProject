@@ -2,7 +2,6 @@ package hdss.output;
 
 import java.util.List;
 
-import hdss.output.ResourcesFlowPublicData;
 import hdss.data.ResourcesFlowInternalData;
 
 public class AmountAvailablePublicData {
@@ -13,16 +12,13 @@ public class AmountAvailablePublicData {
 	public AmountAvailablePublicData(String name, String authorization_date, ResourcesFlowInternalData [] newResources) {
 		this.name = name;
 		this.authorizationDate = authorization_date;
-		this.resources = createResourcesList(newResources);
+		createResourcesList(newResources);
 	}
 
-	private List<ResourcesFlowPublicData> createResourcesList (ResourcesFlowInternalData[] newResources) {
-		List<ResourcesFlowPublicData> aux = null;
-
+	private void createResourcesList (ResourcesFlowInternalData[] newResources) {
 		for (int i=0; i<newResources.length;i++) {
-			aux.add(new ResourcesFlowPublicData (newResources[i].getResourceName(), newResources[i].getFlowPerMinute(), newResources[i].getAmountProvided(), newResources[i].getTimeNeeded()));
+			this.resources.add(new ResourcesFlowPublicData (newResources[i].getResourceName(), newResources[i].getFlowPerMinute(), newResources[i].getAmountProvided(), newResources[i].getTimeNeeded()));
 		}
-		return aux;
 	}
 	
 	public String getName() {
