@@ -8,48 +8,47 @@ import hdss.exceptions.HydricDSSException;
 
 public class AmountAvailableInputData {
 
-	private String name;
-	private String calculationDate;
+    private String name;
+    private String calculationDate;
 
-	private Boolean validated;
+    private Boolean validated;
 
-	public String getName() {
-		return this.name;
-	}
+    public String getName() {
+        return this.name;
+    }
 
-	public String getCalculationDate() {
-		return this.calculationDate;
-	}
+    public String getCalculationDate() {
+        return this.calculationDate;
+    }
 
-	public AmountAvailableInputData (String name, String calculationDate) throws HydricDSSException {
-	  this.name = name;
-	  this.calculationDate = calculationDate;
-	  validated = false;
-	  validate();
-	}
+    public AmountAvailableInputData(String name, String calculationDate) throws HydricDSSException {
+        this.name = name;
+        this.calculationDate = calculationDate;
+        validated = false;
+        validate();
+    }
 
-	public void validate() throws HydricDSSException {
-	    	if (!validated) {
-	    		validateName();
-	    		validateCalculationDate();
-	    		validated = true;
-    		}
-	}
+    public void validate() throws HydricDSSException {
+        if (!validated) {
+            validateName();
+            validateCalculationDate();
+            validated = true;
+        }
+    }
 
-	private void validateName() throws HydricDSSException {
-		if ((this.name.length()>50)||(this.name.length()<1))
-		{
-			throw (new HydricDSSException ("The input file has no data or does not match the expected format"));
-		}
-	}
+    private void validateName() throws HydricDSSException {
+        if ((this.name.length() > 50) || (this.name.length() < 1)) {
+            throw (new HydricDSSException("The input file has no data or does not match the expected format"));
+        }
+    }
 
-	private void validateCalculationDate() throws HydricDSSException {
-		if (!isValidDateFormat("dd/mm/yyyy", this.calculationDate)) {
-			throw (new HydricDSSException ("The input file has no data or does not match the expected format"));
-		}
-	}
+    private void validateCalculationDate() throws HydricDSSException {
+        if (!isValidDateFormat("dd/mm/yyyy", this.calculationDate)) {
+            throw (new HydricDSSException("The input file has no data or does not match the expected format"));
+        }
+    }
 
-	private static boolean isValidDateFormat(String format, String value) throws HydricDSSException {
+    private static boolean isValidDateFormat(String format, String value) throws HydricDSSException {
         Date date = null;
         try {
             SimpleDateFormat sdf = new SimpleDateFormat(format);

@@ -18,48 +18,43 @@ import hdss.input.data.IrrigationDemandInputData;
 
 public class DemandJSONDataStore implements DemandDataStore {
 
-	private String DEMAND_DATASTORE_PATH = System.getProperty("user.dir") + "/Demand.json";
-	private List<DemandInternalData> WatershedsDemandList;
-	
-	@Override
-	public void InsertDemand (Object objectToInsert) throws HydricDSSException
-	{
-		IrrigationDemandInputData newRequest = (IrrigationDemandInputData)objectToInsert;
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		ArrayList<DemandInternalData> objects = new ArrayList<DemandInternalData>();
+    private String DEMAND_DATASTORE_PATH = System.getProperty("user.dir") + "/Demand.json";
+    private List<DemandInternalData> WatershedsDemandList;
 
-		DemandInternalData newItem = new DemandInternalData (newRequest);
-		objects.add(newItem);
+    @Override
+    public void InsertDemand(Object objectToInsert) throws HydricDSSException {
+        IrrigationDemandInputData newRequest = (IrrigationDemandInputData) objectToInsert;
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        ArrayList<DemandInternalData> objects = new ArrayList<DemandInternalData>();
 
-		String json = gson.toJson(objects);
+        DemandInternalData newItem = new DemandInternalData(newRequest);
+        objects.add(newItem);
 
-		File file = new File(DEMAND_DATASTORE_PATH);
-		FileWriter fileWriter;
-		try {
-			fileWriter = new FileWriter(file, true);
-			fileWriter.append(json);
-			fileWriter.close();
-			this.WatershedsDemandList.add(newItem);
-		} catch (IOException ex) {
-			throw (new HydricDSSException("Demand Data Store cannot insert a new item " + ex.getMessage()));
-		}
-	}
-	
-	private DemandInternalData[] loadDataStore () throws HydricDSSException
-	{
-		try
-		{
-			JsonReader reader = new JsonReader(new FileReader(DEMAND_DATASTORE_PATH));
-			Gson gson = new Gson();
+        String json = gson.toJson(objects);
 
-			DemandInternalData [] myArray = gson.fromJson(reader, WatershedInternalData[].class);
-			return myArray;
-		}
-		catch (Exception ex)
-		{
-			throw (new HydricDSSException(ex.getMessage()));
-		}
+        File file = new File(DEMAND_DATASTORE_PATH);
+        FileWriter fileWriter;
+        try {
+            fileWriter = new FileWriter(file, true);
+            fileWriter.append(json);
+            fileWriter.close();
+            this.WatershedsDemandList.add(newItem);
+        } catch (IOException ex) {
+            throw (new HydricDSSException("Demand Data Store cannot insert a new item " + ex.getMessage()));
+        }
+    }
 
-	}
-	
+    private DemandInternalData[] loadDataStore() throws HydricDSSException {
+        try {
+            JsonReader reader = new JsonReader(new FileReader(DEMAND_DATASTORE_PATH));
+            Gson gson = new Gson();
+
+            DemandInternalData[] myArray = gson.fromJson(reader, WatershedInternalData[].class);
+            return myArray;
+        } catch (Exception ex) {
+            throw (new HydricDSSException(ex.getMessage()));
+        }
+
+    }
+
 }
