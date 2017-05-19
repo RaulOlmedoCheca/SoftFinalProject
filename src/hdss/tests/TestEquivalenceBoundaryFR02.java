@@ -36,7 +36,7 @@ public class TestEquivalenceBoundaryFR02 {
   */
     @Test
     public void basicValidTest() {
-        //TODO
+        //TODO This test lacks of implementation since the functionality required is not implemented/provided
     }
 
     /* Test Case: HDSS-FR02-TC-2
@@ -187,7 +187,7 @@ public class TestEquivalenceBoundaryFR02 {
   */
     @Test
     public void watershedNameLengthLowerLimitTest() {
-        //TODO
+        //TODO This test lacks of implementation since the functionality required is not implemented/provided
     }
 
 
@@ -198,7 +198,7 @@ public class TestEquivalenceBoundaryFR02 {
   */
     @Test
     public void watershedNameLengthRightValueTest() {
-        //TODO
+        //TODO This test lacks of implementation since the functionality required is not implemented/provided
     }
 
     /* Test Case: HDSS-FR01-TC-14
