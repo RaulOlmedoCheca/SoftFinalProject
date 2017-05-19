@@ -51,7 +51,7 @@ public class TestEquivalenceBoundaryFR01 {
         try {
             manager.CalculateWatershedAmount("");
         } catch (HydricDSSException e) {
-            assertEquals(e.getMessage(), "No input file");
+            assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
         }
     }
 

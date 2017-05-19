@@ -3,9 +3,10 @@
 //import hdss.WatershedManagerInterface;
 //import hdss.WatershedManager;
 //import hdss.exceptions.HydricDSSException;
+//
 //import org.junit.Test;
 //
-//import static junit.framework.TestCase.assertEquals;
+//import static org.junit.Assert.*;
 //
 //public class TestEquivalenceBoundaryFR02 {
 //
@@ -48,7 +49,7 @@
 //        try {
 //            manager.AllocateWaterAmount("");
 //        } catch (HydricDSSException e) {
-//            assertEquals(e.getMessage(), "No input file");
+//            assertEquals(e.getMessage(), "The input file has no data or does not match the expected format");
 //        }
 //    }
 //
