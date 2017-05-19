@@ -19,7 +19,6 @@ public class WatershedInternalData {
     private AquiferInternalData[] aquifers;
 
     public WatershedInternalData() {
-        // TODO Auto-generated constructor stub
         this.name = "";
         this.reservoirs = null;
         this.plants = null;
@@ -109,13 +108,13 @@ public class WatershedInternalData {
         Boolean found = false;
         int index = 0;
 
-        while ((found == false) && (index < this.getReservoirs().length)) {
+        while ((!found) && (index < this.getReservoirs().length)) {
             if (resourceName.equals(this.getReservoirs()[index].getName())) {
                 found = true;
             }
             index++;
         }
-        if (found == false) {
+        if (!found) {
             throw (new HydricDSSException(resourceName + "is not a resource of" + this.getName()));
         }
         return index;
@@ -126,13 +125,13 @@ public class WatershedInternalData {
         Boolean found = false;
         int index = 0;
 
-        while ((found == false) && (index < this.plants.length)) {
+        while ((!found) && (index < this.plants.length)) {
             if (resourceName.equals(this.plants[index].getName())) {
                 found = true;
             }
             index++;
         }
-        if (found == false) {
+        if (!found) {
             throw (new HydricDSSException(resourceName + "is not a resource of" + this.getName()));
         }
         return index;
@@ -143,13 +142,13 @@ public class WatershedInternalData {
         Boolean found = false;
         int index = 0;
 
-        while ((found == false) && (index < this.aquifers.length)) {
+        while ((!found) && (index < this.aquifers.length)) {
             if (resourceName.equals(this.aquifers[index].getName())) {
                 found = true;
             }
             index++;
         }
-        if (found == false) {
+        if (!found) {
             throw (new HydricDSSException(resourceName + "is not a resource of" + this.getName()));
         }
         return index;
