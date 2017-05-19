@@ -19,7 +19,7 @@ public class AllocationNeededFileDataManager implements IInputFileManager {
             item.validate();
             return item;
         } catch (Exception ex) {
-            throw (new HydricDSSException(ex.getMessage()));
+            throw (new HydricDSSException("The input file has no data or does not match the expected format"));
         }
     }
 

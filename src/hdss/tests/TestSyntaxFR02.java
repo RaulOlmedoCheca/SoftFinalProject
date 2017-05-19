@@ -71,7 +71,7 @@ public class TestSyntaxFR02 {
     @Test
     public void fallingTest() {
         try {
-            manager.RegisterHydricResources(filepath);
+            manager.AllocateWaterAmount(filepath);
         } catch (HydricDSSException e) {
             assertEquals(e.getMessage(), expectedErrorMessage);
         }

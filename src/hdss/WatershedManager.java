@@ -9,20 +9,14 @@ import hdss.data.DemandInternalData;
 import hdss.data.ResourcesFlowInternalData;
 import hdss.data.WatershedInternalData;
 import hdss.exceptions.HydricDSSException;
+import hdss.input.data.*;
 import hdss.logic.CalculatorAmount;
 import hdss.logic.ScenarioSimulator;
-import hdss.output.IrrigationDemandPublicData;
-import hdss.output.ScenarioPublicData;
-import hdss.output.WatershedsListPublicData;
-import hdss.output.AmountAvailablePublicData;
+import hdss.output.*;
 import hdss.storage.WatershedDataStore;
 import hdss.storage.WatershedJSONDataStore;
 import hdss.storage.WatershedStorageManager;
 import hdss.input.*;
-import hdss.input.data.AmountAvailableInputData;
-import hdss.input.data.IrrigationDemandInputData;
-import hdss.input.data.ScenarioInputData;
-import hdss.input.data.WatershedInputData;
 
 public class WatershedManager implements WatershedManagerInterface {
 
