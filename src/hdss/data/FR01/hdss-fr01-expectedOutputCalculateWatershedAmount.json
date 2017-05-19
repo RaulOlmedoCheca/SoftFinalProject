@@ -1,0 +1,13 @@
+{
+  "name": "watershedName",
+  "authorization_date": "18/05/2017",
+  "resources": [
+    {
+      "name": "reservoirName",
+      "flow_per_minute": 120.0,
+      "amount_provided": 120.0,
+      "time_needed": 1
+    }
+  ]
+}
+
