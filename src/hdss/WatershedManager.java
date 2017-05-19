@@ -90,11 +90,14 @@ public class WatershedManager implements WatershedManagerInterface {
         return myResult;
     }
 
-    //@Override
-    //public RequestersProvidedListPublicData AllocateWaterAmount (String InputFile) throws HydricDSSException {
-    // TODO
-    //return myResult;
-    //}
+    @Override
+    public RequestersProvidedListPublicData AllocateWaterAmount (String InputFile) throws HydricDSSException {
+        IInputFileManager ioManager = new AllocationNeededFileDataManager();
+        AllocationNeededInputData amountData = (AllocationNeededInputData) ioManager.Parse(InputFile);
+        
+        RequestersProvidedListPublicData myResult = null;
+        return myResult;
+    }
 
 
 }
