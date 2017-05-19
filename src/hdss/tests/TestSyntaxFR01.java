@@ -76,6 +76,13 @@ public class TestSyntaxFR01 {
             assertEquals(e.getMessage(), expectedErrorMessage);
         }
     }
+
+    /* Test case: HDSS-FR01-S-TC-33
+    * Testing technique: Syntax analysis
+    * Expected value: Valid Test
+    */
+    @Test
+    public void validTest() {
+        //TODO This test lacks of implementation since the functionality required is not implemented/provided
+    }
 }
-//{"src/hdss/data/FR01_Syntax/hdss-rf01-correctFile.json", "Valid file", "HDSS-RF-01 Syntactically Valid File"},
-//TODO

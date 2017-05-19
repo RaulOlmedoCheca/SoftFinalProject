@@ -59,7 +59,7 @@ public class TestEquivalenceBoundaryFR02 {
   * Expected Result: Throws Exception. Error message: "The input file has no data or does not match the expected format"
   */
     @Test
-    public void emptyFileTest () throws HydricDSSException {
+    public void emptyFileTest() throws HydricDSSException {
         try {
             manager.AllocateWaterAmount("src/hdss/data/FR02/hdss-fr02-invalidInputEmptyFile.json");
         } catch (HydricDSSException e) {
