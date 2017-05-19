@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.Assert.*;
-import static junit.framework.TestCase.fail;
 
 @RunWith(Parameterized.class)
 public class TestSyntaxFR02 {
