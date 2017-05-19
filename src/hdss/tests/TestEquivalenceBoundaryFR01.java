@@ -207,7 +207,7 @@ public class TestEquivalenceBoundaryFR01 {
     * Expected Result: Throws Exception. Error message: "The input file has no data or does not match the expected format"
     */
     @Test
-    public void watershedNameLengthUpperLimitTest() {
+    public void watershedNameLengthUpperLimitTest() throws HydricDSSException {
         try {
             manager.CalculateWatershedAmount("src/hdss/data/FR01/hdss-fr01-invalidInputWatershedName51Chars.json");
         } catch (HydricDSSException e) {
