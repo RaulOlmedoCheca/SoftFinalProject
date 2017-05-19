@@ -32,21 +32,21 @@ public class CalculatorAmount {
                 switch (stateReservoirs) {
                     case "PLENTY":
                         maxToProvide = currentCapacity * 0.01;
-                        flowPerMinute = 3;
+                        flowPerMinute = 3 * 60;
                         timeNeeded = (int) Math.ceil(maxToProvide / flowPerMinute);
 
                         resources[i] = new ResourcesFlowInternalData(reservoir.getName(), flowPerMinute, maxToProvide, timeNeeded);
                         break;
                     case "NORMALITY":
                         maxToProvide = currentCapacity * 0.007;
-                        flowPerMinute = 2;
+                        flowPerMinute = 2 * 60;
                         timeNeeded = (int) Math.ceil(maxToProvide / flowPerMinute);
 
                         resources[i] = new ResourcesFlowInternalData(reservoir.getName(), flowPerMinute, maxToProvide, timeNeeded);
                         break;
                     case "SHORTAGE":
                         maxToProvide = currentCapacity * 0.005;
-                        flowPerMinute = 1;
+                        flowPerMinute = 1 * 60;
                         timeNeeded = (int) Math.ceil(maxToProvide / flowPerMinute);
 
                         resources[i] = new ResourcesFlowInternalData(reservoir.getName(), flowPerMinute, maxToProvide, timeNeeded);
@@ -70,7 +70,7 @@ public class CalculatorAmount {
                 switch (statePlants) {
                     case "PLENTY":
                         maxToProvide = currentCapacity;
-                        flowPerMinute = 2.3;
+                        flowPerMinute = 2.3 * 60;
                         timeNeeded = (int) Math.ceil(maxToProvide / flowPerMinute);
 
                         resources[i] = new ResourcesFlowInternalData(plant.getName(), flowPerMinute, maxToProvide, timeNeeded);
@@ -78,7 +78,7 @@ public class CalculatorAmount {
                     case "NORMALITY":
                         double avail = maxCapacity * 0.1;
                         maxToProvide = Math.min(avail, currentCapacity);
-                        flowPerMinute = 1;
+                        flowPerMinute = 1 * 60;
                         timeNeeded = (int) Math.ceil(maxToProvide / flowPerMinute);
 
                         resources[i] = new ResourcesFlowInternalData(plant.getName(), flowPerMinute, maxToProvide, timeNeeded);
@@ -86,7 +86,7 @@ public class CalculatorAmount {
                     case "SHORTAGE":
                         double avail2 = maxCapacity * 0.15;
                         maxToProvide = Math.min(avail2, currentCapacity);
-                        flowPerMinute = 0.5;
+                        flowPerMinute = 0.5 * 60;
                         timeNeeded = (int) Math.ceil(maxToProvide / flowPerMinute);
 
                         resources[i] = new ResourcesFlowInternalData(plant.getName(), flowPerMinute, maxToProvide, timeNeeded);
@@ -108,21 +108,21 @@ public class CalculatorAmount {
                 if (currentLevel > 0) {
                     switch (stateAquifers) {
                         case "PLENTY":
-                            flowPerMinute = 2;
+                            flowPerMinute = 2 * 60;
                             timeNeeded = 120;
                             maxToProvide = flowPerMinute * timeNeeded;
 
                             resources[i] = new ResourcesFlowInternalData(aquifer.getName(), flowPerMinute, maxToProvide, timeNeeded);
                             break;
                         case "NORMALITY":
-                            flowPerMinute = 1.5;
+                            flowPerMinute = 1.5 * 60;
                             timeNeeded = 90;
                             maxToProvide = flowPerMinute * timeNeeded;
 
                             resources[i] = new ResourcesFlowInternalData(aquifer.getName(), flowPerMinute, maxToProvide, timeNeeded);
                             break;
                         case "SHORTAGE":
-                            flowPerMinute = 1;
+                            flowPerMinute = 1 * 60;
                             timeNeeded = 60;
                             maxToProvide = flowPerMinute * timeNeeded;
 
